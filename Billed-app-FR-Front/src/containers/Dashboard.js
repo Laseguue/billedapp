@@ -149,7 +149,6 @@ export default class {
       this.counter ++
     }
 
-    // Attacher les écouteurs uniquement aux bills de la liste dépliée
     filteredBills(bills, getStatus(this.index)).forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })
