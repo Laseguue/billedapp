@@ -38,7 +38,7 @@ export default class {
             try {
               return {
                 ...doc,
-                date: formatDate(doc.date),
+                date: doc.date,
                 status: formatStatus(doc.status)
               }
             } catch(e) {
@@ -50,7 +50,7 @@ export default class {
               }
             }
           })
-          const sortedBills = bills.sort((a, b) => new Date(a.date) < new Date(b.date)? 1:-1)
+          const sortedBills = bills.sort((a, b) => new Date(a.date) < new Date(b.date) ? 1 : -1)
           console.log('length', sortedBills.length)
           return sortedBills
         })
