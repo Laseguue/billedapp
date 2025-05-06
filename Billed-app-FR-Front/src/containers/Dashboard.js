@@ -80,8 +80,12 @@ export default class {
 
   handleClickIconEye = () => {
     const billUrl = $('#icon-eye-d').attr("data-bill-url")
-    const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8)
-    $('#modaleFileAdmin1').find(".modal-body").html(`<div style='text-align: center;'><img width=${imgWidth} src=${billUrl} alt="Bill"/></div>`)
+    const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.5)
+    $('#modaleFileAdmin1').find(".modal-body").html(`
+      <div style='text-align: center;' class="bill-proof-container">
+        <img style="max-width: 100%; height: auto;" width=${imgWidth} src=${billUrl} alt="Bill"/>
+      </div>
+    `)
     if (typeof $('#modaleFileAdmin1').modal === 'function') $('#modaleFileAdmin1').modal('show')
   }
 
@@ -145,12 +149,12 @@ export default class {
       this.counter ++
     }
 
-    bills.forEach(bill => {
+    // Attacher les écouteurs uniquement aux bills de la liste dépliée
+    filteredBills(bills, getStatus(this.index)).forEach(bill => {
       $(`#open-bill${bill.id}`).click((e) => this.handleEditTicket(e, bill, bills))
     })
 
     return bills
-
   }
 
   getBillsAllUsers = () => {
