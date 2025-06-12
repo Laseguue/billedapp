@@ -155,6 +155,8 @@ export default class {
 
     return bills
   }
+  
+
 
   getBillsAllUsers = () => {
     if (this.store) {

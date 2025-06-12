@@ -66,7 +66,6 @@ export default class NewBill {
       status: 'pending'
     }
     this.updateBill(bill)
-    debugger
     this.onNavigate(ROUTES_PATH['Bills'])
   }
 
